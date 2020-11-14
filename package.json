@@ -1,0 +1,55 @@
+{
+  "name": "electron-ts-react-boilerplate",
+  "version": "0.0.1",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "build": {
+    "appId": "your.id",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "your.app.category.type"
+    }
+  },
+  "scripts": {
+    "dev:electron": "NODE_ENV=development webpack --config webpack.electron.config.js --mode development && electron .",
+    "dev:react": "NODE_ENV=development webpack serve --config webpack.react.config.js --mode development",
+    "build:electron": "NODE_ENV=production webpack --config webpack.electron.config.js --mode production",
+    "build:react": "NODE_ENV=production webpack --config webpack.react.config.js --mode production",
+    "build": "npm run build:electron && npm run build:react",
+    "package-win": "electron-builder build --win -c.extraMetadata.main=dist/main.js --publish never",
+    "package-mac": "electron-builder build --mac -c.extraMetadata.main=dist/main.js --publish never"
+  },
+  "dependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.2.1",
+    "css-loader": "^5.0.0",
+    "electron": "^10.1.3",
+    "electron-builder": "^22.7.0",
+    "eslint": "^7.3.1",
+    "file-loader": "^6.1.1",
+    "html-webpack-plugin": "^4.5.0",
+    "node-sass": "^4.12.0",
+    "regenerator-runtime": "^0.13.2",
+    "sass-loader": "^10.0.4",
+    "style-loader": "^2.0.0",
+    "typescript": "^4.0.3",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
